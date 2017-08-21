@@ -1,5 +1,5 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json",
+  "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
   "handler": "Microsoft.Compute.MultiVm",
   "version": "0.1.2-preview",
   "parameters": {
@@ -19,7 +19,10 @@
       {
         "name": "Password",
         "type": "Microsoft.Common.PasswordBox",
-        "label": "Password for Web Application Firewall Admin access",
+        "label": {
+          "password": "Password",
+          "confirmPassword": "Confirm password"
+        },
         "toolTip": "Provide password for WAF Admin UI",
         "constraints": {
           "required": true,
@@ -102,7 +105,6 @@
             "subnets": {
               "subnet0": {
                 "label": "WAF Subnet",
-                "Subnet\",": null,
                 "constraints": {
                   "minAddressPrefixSize": "/24",
                   "minAddressCount": 1,
@@ -128,7 +130,7 @@
             },
             "constraints": {
               "required": {
-                "publicIpAddressName": true,
+
                 "domainNameLabel": true
               }
             },
@@ -136,13 +138,7 @@
               "hideDomainNameLabel": false
             }
           }
-        ],
-        "osPlatform": "Linux",
-        "imageReference": {
-          "publisher": "barracudanetworks",
-          "offer": "waf",
-          "sku": "byol"
-        }
+        ]
       }
     ],
     "outputs": {

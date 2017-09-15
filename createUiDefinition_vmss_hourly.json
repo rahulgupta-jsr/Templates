@@ -46,47 +46,36 @@
                 "elements": [
                     {
                         "name": "standardVmSize",
-                        "type": "Microsoft.Common.DropDown",
+                        "type": "Microsoft.Compute.SizeSelector",
                         "label": "WAF Instance Size",
                         "toolTip": "Choose the instance size you require for your deployment",
-                        "defaultValue": "D-Series Medium (Level 5)",
+                        "toolTip": "Choose the instance size you require for your deployment",
+                        "recommendedSizes": [
+                            "Standard_D2",
+                            "Standard_D3",
+                            "Standard_D2_v2",
+                            "Standard_D3_v2"
+                        ],
                         "constraints": {
-                            "required": true,
-                            "allowedValues": [
-                                {
-                                    "label": "D-Series Small (Level 1)",
-                                    "value": "Standard_D1"
-                                },
-                                {
-                                    "label": "D-Series Medium (Level 5)",
-                                    "value": "Standard_D2"
-                                },
-                                {
-                                    "label": "D-Series Large (Level 10)",
-                                    "value": "Standard_D3"
-                                },
-                                {
-                                    "label": "D-Series X-Large (Level 15)",
-                                    "value": "Standard_D4"
-                                },
-                                {
-                                    "label": "Dv2-Series Small (Level 1)",
-                                    "value": "Standard_D1_v2"
-                                },
-                                {
-                                    "label": "Dv2-Series Medium (Level 5)",
-                                    "value": "Standard_D2_v2"
-                                },
-                                {
-                                    "label": "Dv2-Series Large (Level 10)",
-                                    "value": "Standard_D3_v2"
-                                },
-                                {
-                                    "label": "Dv2-Series X-Large (Level 15)",
-                                    "value": "Standard_D4_v2"
-                                }
+                            "allowedSizes": [
+                                "Standard_D2",
+                                "Standard_D1",
+                                "Standard_D3",
+                                "Standard_D4",
+                                "Standard_D1_v2",
+                                "Standard_D2_v2",
+                                "Standard_D3_v2",
+                                "Standard_D4_v2"
                             ]
-                        }
+                        },
+                        "osPlatform": "Linux",
+                        "imageReference": {
+                            "publisher": "barracudanetworks",
+                            "offer": "waf",
+                            "sku": "byol"
+                        },
+                        "count": 1,
+                        "visible": true
                     },
                     {
                         "name": "storageElement",
@@ -163,6 +152,7 @@
                         },
                         "options": {
                             "hideDomainNameLabel": false,
+                            "hideNone": true,
                             "hideExisting": true
                         }
                     },

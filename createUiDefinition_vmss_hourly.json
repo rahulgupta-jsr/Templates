@@ -460,13 +460,19 @@
                 "elements": [
                     {
                         "name": "wafSharedSecret",
-                        "type": "Microsoft.Common.TextBox",
-                        "label": "Cluster Shared Secret",
+                        "type": "Microsoft.Common.PasswordBox",
+                        "label": {
+                            "password": "Cluster Shared Secret",
+                            "confirmPassword": "Confirm password"
+                            },
                         "defaultValue": "secret",
                         "toolTip": "Passcode to prevent unauthorized systems from accessing cluster information. All Barracuda Web Application Firewalls in a cluster must have the same shared secret.",
                         "constraints": {
                             "required": true
-                        }
+                        },
+                        "options": {
+                             "hideConfirmation": false
+                        },
                     },
                     {
                         "name": "bootstrapMethod",
@@ -716,7 +722,7 @@
                                 "type": "Microsoft.Common.DropDown",
                                 "label": "Session Persistence",
                                 "toolTip": "Choose the persistence type to be configured",
-                                "defaultValue": "None",
+                                "defaultValue": "Client IP and protocol",
                                 "constraints": {
                                     "required": true,
                                     "allowedValues": [

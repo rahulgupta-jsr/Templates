@@ -49,7 +49,6 @@
                         "type": "Microsoft.Compute.SizeSelector",
                         "label": "WAF Instance Size",
                         "toolTip": "Choose the instance size you require for your deployment",
-                        "toolTip": "Choose the instance size you require for your deployment",
                         "recommendedSizes": [
                             "Standard_D2",
                             "Standard_D3",
@@ -464,15 +463,14 @@
                         "label": {
                             "password": "Cluster Shared Secret",
                             "confirmPassword": "Confirm password"
-                            },
-                        "defaultValue": "secret",
+                        },
                         "toolTip": "Passcode to prevent unauthorized systems from accessing cluster information. All Barracuda Web Application Firewalls in a cluster must have the same shared secret.",
                         "constraints": {
                             "required": true
                         },
                         "options": {
-                             "hideConfirmation": false
-                        },
+                            "hideConfirmation": false
+                        }
                     },
                     {
                         "name": "bootstrapMethod",

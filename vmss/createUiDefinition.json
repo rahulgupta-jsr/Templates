@@ -745,6 +745,7 @@
             }
         ],
         "outputs": {
+            "location": "[location()]",
             "vmssName": "[basics('wafvmssName')]",
             "adminPassword": "[basics('Password')]",
             "vmSku": "[steps('DeployConfig').standardVmSize]",

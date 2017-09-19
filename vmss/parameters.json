@@ -5,6 +5,9 @@
     "vmssName": {
       "value": "bwafvmss"
     },
+    "location": {
+      "value": "Brazil South"
+    },
     "adminPassword": {
       "value": "@Rahul123456"
     },

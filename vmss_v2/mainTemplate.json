@@ -48,6 +48,7 @@
     },
     "storageAccountResourceGroup": {
       "type": "string",
+      "defaultValue": "",
       "metadata": {
         "description": "Resource group of existing storage account(if new chosen)"
       }
@@ -403,7 +404,7 @@
     "imageOffer" : "waf",
     "useNewStorageAccount": "[equals(parameters('storageAccountNewOrExisting'), 'new')]",
     "useNewVnet": "[equals(parameters('vNETNewOrExisting'), 'new')]",
-    "newStorageLink": "[concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]", 
+    "storageRG" : "[if(variables('useNewStorageAccount'), resourceGroup().name, parameters('storageAccountResourceGroup'))]",
     "osType": {
       "publisher": "[variables('imagePublisher')]",
       "offer":"[variables('imageOffer')]",
@@ -700,7 +701,7 @@
           "diagnosticsProfile": {
             "bootDiagnostics": {
               "enabled": "[parameters('bootDiagnostics')]",
-              "storageUri": "[if(variables('useNewStorageAccount'),reference(variables('newStorageLink'),'2016-01-01').primaryEndpoints.blob,reference(resourceId(parameters('storageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts/', parameters('storageAccountName')),'2016-01-01').primaryEndpoints.blob)]"
+              "storageUri": "[reference(resourceId(variables('storageRG'), 'Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2017-06-01').primaryEndpoints.blob]"
             }
           }
         }
@@ -708,7 +709,7 @@
     },
     {
       "type": "Microsoft.Insights/autoscalesettings",
-      "apiVersion": "2016-08-01",
+      "apiVersion": "2015-04-01",
       "name": "autoscalewad",
       "location": "[parameters('location')]",
       "dependsOn": [

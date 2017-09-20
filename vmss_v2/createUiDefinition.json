@@ -755,6 +755,7 @@
             "storageAccountResourceGroup" : "[steps('DeployConfig').storageElement.resourceGroup]",
             "vNETName": "[steps('DeployConfig').vnetSpec.name]",
             "vNETNewOrExisting": "[steps('DeployConfig').vnetSpec.newOrExisting]",
+            "vNETResourceGroup": "[steps('DeployConfig').vnetSpec.resourceGroup]",
             "subnetName": "[steps('DeployConfig').vnetSpec.subnets.subnet0.name]",
             "dnsNameForIP": "[steps('DeployConfig').dnsSpec.domainNameLabel]",
             "publicIPAddressName": "[steps('DeployConfig').dnsSpec.name]",

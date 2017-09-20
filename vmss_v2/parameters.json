@@ -32,6 +32,9 @@
     "vNETName": {
       "value": "wafVnet"
     },
+    "vNETResourceGroup": {
+      "value": "abcd"
+    },
     "subnetName": {
       "value": "wafSubnet"
     },

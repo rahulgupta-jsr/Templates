@@ -17,7 +17,7 @@
     },
     "vmSku": {
       "type": "string",
-      "defaultValue": "Standard_D2",
+      "defaultValue": "Standard_D2_v2",
       "metadata": {
         "description": "Size of VMs in the VM Scale Set."
       }
@@ -71,6 +71,12 @@
       ],
       "metadata": {
         "description": "Storage Account chosen new or existing"
+      }
+    },
+    "vNETResourceGroup" : {
+      "type": "string",
+      "metadata": {
+        "description": "VNET Resource Group Name."
       }
     },
     "vNETName": {
@@ -405,6 +411,7 @@
     "useNewStorageAccount": "[equals(parameters('storageAccountNewOrExisting'), 'new')]",
     "useNewVnet": "[equals(parameters('vNETNewOrExisting'), 'new')]",
     "storageRG" : "[if(variables('useNewStorageAccount'), resourceGroup().name, parameters('storageAccountResourceGroup'))]",
+    "vNETRG" : "[if(variables('useNewVnet'), resourceGroup().name, parameters('vNETResourceGroup'))]",
     "osType": {
       "publisher": "[variables('imagePublisher')]",
       "offer":"[variables('imageOffer')]",
@@ -507,6 +514,7 @@
     },
     {
       "type": "Microsoft.Network/networkSecurityGroups",
+      "condition": "[variables('useNewVnet')]",
       "apiVersion": "2017-03-01",
       "name": "[concat(parameters('vmssName'),'NSG')]",
       "location": "[parameters('location')]",
@@ -679,7 +687,7 @@
                       "name": "[variables('ipConfigName')]",
                       "properties": {
                         "subnet": {
-                          "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', parameters('vNETName'), '/subnets/', parameters('subnetName'))]"
+                          "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', variables('vNETRG'), '/providers/Microsoft.Network/virtualNetworks/', parameters('vNETName'), '/subnets/', parameters('subnetName'))]"
                         },
                         "loadBalancerBackendAddressPools": [
                           {

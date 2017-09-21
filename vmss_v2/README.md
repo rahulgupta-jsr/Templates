@@ -1,3 +1,4 @@
+![Barracuda WAF](https://www.barracuda.com/assets/img/layout/logo/logo.svg)
 # Deploying the Barracuda Web Application Firewall VM Scale Set(PAYG) in Azure
 
 ## Introduction
@@ -15,10 +16,13 @@ This solution uses an Microsoft ARM template to launch the deployment of Barracu
 
 ## Installation
 
-### <a name="azure"></a>Azure deploy buttons
+### <a name="azure"></a>Azure deploy button
 
    - **PAYG**: Deploy Barracuda WAF with pay-as-you-go hourly billing. <br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Frahulgupta-jsr%2FTemplates%2Fmaster%2Fvmss_v2%2FmainTemplate.json">
        <img src="http://azuredeploy.net/deploybutton.png"/></a><br><br>
+
+## More Information
+   - Please visit out campus for more information about the Barracuda WAF VMSS support.
 
 ## Note
    BYOL based VMSS cluster creation is not yet supported. This will be supported soon.

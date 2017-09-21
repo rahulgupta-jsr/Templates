@@ -11,8 +11,16 @@ This solution uses an Microsoft ARM template to launch the deployment of Barracu
 ## Prerequisites and configuration notes
    - This template requires service principal(for peer discovery it uses Azure API).
    - Azure Storage account with backup file present if you need to do backup based boostrapping. 
-   - Only HTTP service type creation is supported with basic bootstrapping. Backend application servers to be specified in IP:PORT or HOSTNAME:PORT format.Multiple servers can be configured in csv format(e.g. www.example.com:80,10.0.0.9:80)
+   - Only HTTP service type creation is supported with basic bootstrapping. Backend application servers to be specified in IP:PORT or HOSTNAME:PORT format.Multiple servers can be configured in csv format(e.g. `www.example.com:80,10.0.0.9:80`)
    - Ensure that you add appropriate firewall rules in the network security group(NSG) based on your services. The default open ports are 443, 8443, 8000.
+
+## Deployment Architecture <a name="config">
+
+The following is an sample deployment architecture for Barracuda WAF VMSS. All access to the Barracuda WAF instances is through an Azure Load Balancer. The Azure Load Balancer processes both management and data plane traffic.
+
+Refer to Azure LB NAT rules to find out MGMT access Ports. MGMT access are generally available over azure_lb_ip:8000, azure_lb_ip:8001 and so on.
+
+![Deployment Architecture](images/WAF_deployement.png)
 
 
 ## Installation
@@ -23,9 +31,10 @@ This solution uses an Microsoft ARM template to launch the deployment of Barracu
        <img src="http://azuredeploy.net/deploybutton.png"/></a><br><br>
 
 ## More Information
-   - Please visit out campus for more information about the Barracuda WAF VMSS support.[Barracuda WAF in Azure CAMPUS](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure/)
+   - Please visit our campus for more information about the Barracuda WAF VMSS support.
+   [Barracuda WAF in Azure](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure/)
 
 ## Note
-   BYOL based VMSS cluster creation is not yet supported. This will be supported soon.
+   BYOL based Barracuda WAF VMSS is not supported yet. This will be available soon.
 
 ##### DISCLAIMER: ALL OF THE SOURCE CODE ON THIS REPOSITORY IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL BARRACUDA BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOURCE CODE. #####

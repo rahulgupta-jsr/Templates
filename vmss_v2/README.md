@@ -23,7 +23,7 @@ This solution uses an Microsoft ARM template to launch the deployment of Barracu
        <img src="http://azuredeploy.net/deploybutton.png"/></a><br><br>
 
 ## More Information
-   - Please visit out campus for more information about the Barracuda WAF VMSS support. <br><a href="https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure/"></a><br><br>
+   - Please visit out campus for more information about the Barracuda WAF VMSS support. <br><a href="https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure/"></a><br>
 
 ## Note
    BYOL based VMSS cluster creation is not yet supported. This will be supported soon.

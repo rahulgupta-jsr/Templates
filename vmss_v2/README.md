@@ -1,4 +1,5 @@
-<img src ="https://www.barracuda.com/assets/img/layout/logo/logo.svg" width="100"/>
+<img src ="https://www.barracuda.com/assets/img/layout/logo/logo.svg" width="200"/>
+
 # Deploying the Barracuda Web Application Firewall VM Scale Set(PAYG) in Azure
 
 ## Introduction

@@ -559,7 +559,7 @@
                         "elements": [
                             {
                                 "name": "azureStorageAccountName",
-                                "type": "Microsoft.Common.TextBox",
+                                "type": "Microsoft.Storage.StorageAccountSelector",
                                 "label": "Azure Storage Account Name",
                                 "defaultValue": " ",
                                 "toolTip": "Specify storage account where backup file is stored.",
@@ -804,7 +804,7 @@
             "azureTenantId": "[steps('azureApiSettings').azureServicePrincipalDetails.azureTenantId]",
             "azureSecretKey": "[steps('azureApiSettings').azureServicePrincipalDetails.azureSecretKey]",
             "wafBootstrapMethod": "[steps('wafBootStrapSettings').bootstrapMethod]",
-            "azureStorageAccountName": "[steps('wafBootStrapSettings').backupBootstrapConfiguration.azureStorageAccountName]",
+            "azureStorageAccountName": "[steps('wafBootStrapSettings').backupBootstrapConfiguration.azureStorageAccountName.name]",
             "azureStorageAccountKey": "[steps('wafBootStrapSettings').backupBootstrapConfiguration.azureStorageAccountKey]",
             "azureStorageBlobName": "[steps('wafBootStrapSettings').backupBootstrapConfiguration.azureStorageBlobName]",
             "azureBootstrapBackupFilename": "[steps('wafBootStrapSettings').backupBootstrapConfiguration.wafBackupFileName]",
